@@ -62,7 +62,7 @@ flag = True
 
 for i in range(0, len(sound) - segment_length, segment_length):
 
-    peice = sound[i : i + segment_length]
+    piece = sound[i : i + segment_length]
 
     if c == 0 and not flag:
         flag = True
@@ -75,14 +75,14 @@ for i in range(0, len(sound) - segment_length, segment_length):
     volAdjust = volume_multiplier - (
         abs(pan_limit[c]) / (pan_boundary / 100) * volume_multiplier
     )
-    peice -= volAdjust
+    piece -= volAdjust
 
     if flag:
-        panned = peice.pan(pan_limit[c])
+        panned = piece.pan(pan_limit[c])
         c += 1
 
     else:
-        panned = peice.pan(pan_limit[c])
+        panned = piece.pan(pan_limit[c])
         c -= 1
     _8d = _8d + panned
 # ----------------------------------------------
